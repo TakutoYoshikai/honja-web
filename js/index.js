@@ -39,7 +39,7 @@ angular.module("honja", []).controller("HonjaController",
 		})();
 
 		var userAgent = navigator.userAgent;
-		$scope.input = "";
+		$scope.input = "ひらがなかカタカナをいれてください";
 		$scope.results = [];
 		$scope.language = japanese;
 		$scope.english = function(){
