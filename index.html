@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="ja" ng-app="honja">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>HONJA: The Hiragana Transliterator</title>
+		<link rel="stylesheet" href="./bootstrap/css/bootstrap.css" media="screen">
+		<link rel="stylesheet" href="./css/index.css">
+		<script src="js/angular.min.js"></script>
+		<script src="js/index.js"></script>
+	</head>
+
+	<body>
+		<div ng-controller="HonjaController">
+			<nav class="navbar navbar-inverse" role="navigation">
+				<div class="container">
+					<div class="navbar-header">
+						<a class="navbar-brand">HONJA</a>
+						<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#honja-navi">
+							<span class="icon-bar"></span>
+							<span class="icon-bar"></span>
+							<span class="icon-bar"></span>
+						</button>
+					</div>
+
+					<div id="honja-navi" class="collapse navbar-collapse">
+						<ul class="nav navbar-nav navbar-right">
+						<li><a href="" ng-click="english()">English</a></li>
+						<li><a href="" ng-click="japanese()">日本語</a></li>
+						</ul>
+					</div>
+				</div>
+			</nav>
+
+			<div class="try-honja">
+				<div class="container">
+					<h3 class="title">{{language.try_honja}}</h3>
+					<br>
+					<input type="text" class="form-control input-small" ng-model="input" placeholder="{{language.enter_hiragana_or_katakana}}">
+					<br>
+					<center><button type="button" class="try-button btn btn-primary" ng-click="transliterate()">Honja!</button></center>
+					<br>
+					<br>
+
+					<table class="result-table table table-hover">
+						<tr ng-repeat="result in results">
+							<td>{{result.language}}</td>
+							<td>{{result.res}}</td>
+						<tr>
+					</table>
+				</div>
+			</div>
+			<div class="about">
+				<h3 class="title">{{language.what_is_honja}}</h3>
+			</div>
+		</div>
+		<script src="js/jquery.js"></script>
+		<script src="./bootstrap/js/bootstrap.js"></script>
+	</body>
+</html>
