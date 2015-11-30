@@ -12,6 +12,10 @@ body{
 }
 
 
+.honja-result{
+	word-break: break-all;
+	word-wrap: break-word;
+}
 .try-honja{
 	padding-top:60px;
 }
