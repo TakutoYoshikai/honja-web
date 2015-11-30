@@ -7,17 +7,21 @@ body{
 	text-align: center;
 }
 
+.white-bg .title{
+	color:#333;
+}
+
 
 .try-honja{
+	
 }
 
 
 .try-button{
 	text-align: center;
-	padding-bottom:10px;
 }
 .about{
-  background-color: rgba(255,255,255,0.3);
+  background-color: rgba(255,255,255,0.9);
 }
 
 .result-table tr{
@@ -27,4 +31,9 @@ body{
 .result-table td{
 	background-color: rgba(255,255,255,0.1);
 	color:#DDD;
+}
+.honja-description{
+	text-align: center;
+	white-space: pre-line;
+	line-height:30px;
 }

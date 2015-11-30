@@ -2,21 +2,25 @@
 var english = {
 	what_is_honja: "What is HONJA?",
 	try_honja: "Try HONJA!",
-	enter_hiragana_or_katakana: "Enter Hiragana or Katakana"
+	enter_hiragana_or_katakana: "Enter Hiragana or Katakana",
+	honja_description: "HONJA is not a translator. \nIt is a Transliterator."
 }
 
 var japanese = {
 	what_is_honja: "HONJAとは？",
 	try_honja: "Honjaを試してみてください",
-	enter_hiragana_or_katakana: "ひらがなかカタカナを入力してください"
+	enter_hiragana_or_katakana: "ひらがなかカタカナを入力してください",
+	honja_description: "HONJAは他言語ひらがな翻字サービスです。\nHONJAはひらがな・カタカナを別言語の似た音表記に変換します。\n「翻字」であり、「翻訳」ではありません。"
 }
 
 angular.module("honja", []).controller("HonjaController", 
 	function($scope, $http){
+		var langs = ["Japanese", "Romaji", "Thai", "Korean", "Arabic", "Hebrew", "Russian", "Georgian", "Armenian", "Greek", "Tibetan", "Hindi", "Sinhalese", "Tamil", "Khmer", "Amharic", "Burmese"];
+		var langs_google = {"Japanese":"ja", "Romaji":"en", "Thai":"th", "Korean":"ko", "Arabic":"ar", "Russian":"ru", "Greek":"el", "Hindi":"hi", "Tamil":"ta"};
+
 		var honjaApi = (function(){
 			
 			var baseUrl = "http://magnetohacks.com:3000";
-			var langs = ["Japanese", "Romaji", "Thai", "Korean", "Arabic", "Hebrew", "Russian", "Georgian", "Armenian", "Greek", "Tibetan", "Hindi", "Sinhalese", "Tamil", "Khmer", "Amharic", "Burmese"];
 
 			var sendRequest = function(input, callback){
 				var url = baseUrl + "/all?target=" + input;
@@ -28,10 +32,13 @@ angular.module("honja", []).controller("HonjaController",
 						callback(err, null);
 					});
 			}
+
 			return {
 				sendRequest: sendRequest,
 			}
 		})();
+
+		var userAgent = navigator.userAgent;
 		$scope.input = "";
 		$scope.results = [];
 		$scope.language = japanese;
