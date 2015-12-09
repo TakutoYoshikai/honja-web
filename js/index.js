@@ -10,7 +10,7 @@ var japanese = {
 	what_is_honja: "HONJAとは？",
 	try_honja: "Honjaを試してみてください",
 	enter_hiragana_or_katakana: "ひらがなかカタカナを入力してください",
-	honja_description: "HONJAは他言語ひらがな翻字サービスです。\nHONJAはひらがな・カタカナを別言語の似た音表記に変換します。\n「翻字」であり、「翻訳」ではありません。"
+	honja_description: "HONJAは多言語ひらがな翻字サービスです。\nHONJAはひらがな・カタカナを別言語の似た音表記に変換します。\n「翻字」であり、「翻訳」ではありません。"
 }
 
 angular.module("honja", []).controller("HonjaController", 
@@ -39,7 +39,7 @@ angular.module("honja", []).controller("HonjaController",
 		})();
 
 		var userAgent = navigator.userAgent;
-		$scope.input = "ひらがなかカタカナをいれてください";
+		$scope.input = "ひらがなか カタカナを いれてください";
 		$scope.results = [];
 		$scope.language = japanese;
 		$scope.english = function(){
