@@ -8,7 +8,7 @@ var english = {
 
 var japanese = {
 	what_is_honja: "HONJAとは？",
-	try_honja: "Honjaを試してみてください",
+	try_honja: "HONJAを試してみてください",
 	enter_hiragana_or_katakana: "ひらがなか カタカナを 入力してください",
 	honja_description: "HONJAは多言語ひらがな翻字サービスです。\nHONJAはひらがな・カタカナを別言語の似た音表記に変換します。\n「翻字」であり、「翻訳」ではありません。"
 }
