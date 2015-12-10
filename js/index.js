@@ -42,6 +42,31 @@ angular.module("honja", []).controller("HonjaController",
 		$scope.input = "ひらがなか カタカナを いれてください";
 		$scope.results = [];
 		$scope.language = japanese;
+		$scope.goToGoogleTranslate = function(url){
+			if (!url){
+				return;
+			}
+
+			location.href = url;
+		}
+		var canUseGoogleTranslate = function(lang){
+			if (!langs_google[lang]){
+				return false;
+			}
+
+			return true;
+		}
+
+		var createLinkToGoogleTranslate = function(lang, result){
+			if (!canUseGoogleTranslate(lang)) return null;
+			if ((userAgent.indexOf('iPhone') > 0 
+					&& userAgent.indexOf('iPad') == -1)
+					|| userAgent.indexOf('iPod') > 0
+					|| userAgent.indexOf('Android') > 0) {
+				return "https://translate.google.co.jp/m/translate#" + langs[lang] + "/ja/" + result;
+			} 
+			return "https://translate.google.co.jp/#" + lang + "/ja/" + result;
+		}
 		var sortLangs = function(arr){
 			var result = [];
 			langs.forEach(function(lang){
@@ -67,9 +92,11 @@ angular.module("honja", []).controller("HonjaController",
 				else {
 					$scope.results = [];
 					angular.forEach(res, function(value, key){
-						$scope.results.push({language:key, res:value});
+						$scope.results.push({language:key, res:value, url: createLinkToGoogleTranslate(key, value)});
+						
 					});
 					$scope.results = sortLangs($scope.results);
+					console.log($scope.results);
 				}
 			});
 		}

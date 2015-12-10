@@ -45,7 +45,7 @@
 					<table class="result-table table table-hover">
 						<tr ng-repeat="result in results">
 							<td class="language-name">{{result.language}}</td>
-							<td class="honja-result">{{result.res}}</td>
+							<td class="honja-result" ng-click="goToGoogleTranslate(result.url)">{{result.res}}</td>
 						<tr>
 					</table>
 				</div>
