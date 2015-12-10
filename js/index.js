@@ -42,6 +42,19 @@ angular.module("honja", []).controller("HonjaController",
 		$scope.input = "ひらがなか カタカナを いれてください";
 		$scope.results = [];
 		$scope.language = japanese;
+		var sortLangs = function(arr){
+			var result = [];
+			langs.forEach(function(lang){
+				for (var ii = 0; ii < $scope.results.length; ii++){
+					if (lang == $scope.results[ii].language){
+						result.push($scope.results[ii]);
+						break;
+					}
+				}
+			});
+
+			return result;
+		}
 		$scope.english = function(){
 			$scope.language = english;
 		}
@@ -56,6 +69,7 @@ angular.module("honja", []).controller("HonjaController",
 					angular.forEach(res, function(value, key){
 						$scope.results.push({language:key, res:value});
 					});
+					$scope.results = sortLangs($scope.results);
 				}
 			});
 		}
