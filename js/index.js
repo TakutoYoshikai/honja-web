@@ -63,9 +63,9 @@ angular.module("honja", []).controller("HonjaController",
 					&& userAgent.indexOf('iPad') == -1)
 					|| userAgent.indexOf('iPod') > 0
 					|| userAgent.indexOf('Android') > 0) {
-				return "https://translate.google.co.jp/m/translate#" + langs[lang] + "/ja/" + result;
+				return "https://translate.google.co.jp/m/translate#" + langs_google[lang] + "/ja/" + result;
 			} 
-			return "https://translate.google.co.jp/#" + lang + "/ja/" + result;
+			return "https://translate.google.co.jp/#" + langs_google[lang] + "/ja/" + result;
 		}
 		var sortLangs = function(arr){
 			var result = [];
