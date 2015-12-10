@@ -42,3 +42,11 @@ body{
 	white-space: pre-line;
 	line-height:30px;
 }
+
+.copyright{
+	margin-top:5px;
+}
+.copyright p{
+	color:#DDD;
+	text-align:center;
+}
