@@ -50,3 +50,6 @@ body{
 	color:#DDD;
 	text-align:center;
 }
+.hasLink{
+	text-decoration: underline;
+}
