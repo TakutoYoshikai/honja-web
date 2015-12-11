@@ -47,7 +47,7 @@ angular.module("honja", []).controller("HonjaController",
 				return;
 			}
 
-			location.href = url;
+			window.open(url);
 		}
 		var canUseGoogleTranslate = function(lang){
 			if (!langs_google[lang]){
