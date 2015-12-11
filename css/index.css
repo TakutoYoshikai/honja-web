@@ -52,4 +52,5 @@ body{
 }
 .hasLink{
 	text-decoration: underline;
+	cursor: pointer;
 }
