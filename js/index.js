@@ -86,6 +86,13 @@ angular.module("honja", []).controller("HonjaController",
 		$scope.japanese = function(){
 			$scope.language = japanese;
 		}
+		$scope.openAbout = function(){
+			if ($scope.language == japanese){
+				window.open("https://sites.google.com/site/nihongolc/honja");
+			} else if ($scope.language == english){
+				window.open("https://sites.google.com/site/nihongolc/honja/what-s-honja");
+			}
+		}
 		$scope.transliterate = function(){
 			honjaApi.sendRequest($scope.input, function(err, res){
 				if (err) console.log(err);
