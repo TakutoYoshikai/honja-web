@@ -107,6 +107,11 @@ angular.module("honja", []).controller("HonjaController",
 				}
 			});
 		}
+		document.getElementById("honja-input").onkeypress = function(evt){
+			if (13 == evt.keyCode){
+				$scope.transliterate();
+			}
+		}
 	});
 
 
