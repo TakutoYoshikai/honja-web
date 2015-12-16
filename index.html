@@ -58,9 +58,9 @@
 
 			<div class="try-honja">
 				<div class="container">
-					<h3 class="title">{{language.try_honja}}</h3>
+					<h3 class="title">{{language.localize.try_honja}}</h3>
 					<br>
-					<input type="text" id="honja-input" class="form-control input-small" ng-model="input" placeholder="{{language.enter_hiragana_or_katakana}}">
+					<input type="text" id="honja-input" class="form-control input-small" ng-model="input" placeholder="{{language.localize.enter_hiragana_or_katakana}}">
 					<br>
 					<br>
 					<center><button type="button" class="try-button btn btn-danger" ng-click="transliterate()">HONJA!</button></center>
@@ -69,17 +69,17 @@
 
 					<table class="result-table table table-hover">
 						<tr ng-repeat="result in results">
-							<td class="language-name">{{result.language}}</td>
+							<td class="language-name">{{language.languageNameList[result.language]}}</td>
 							<td class="honja-result" ng-click="goToGoogleTranslate(result.url)" ng-class="{hasLink: result.url != null}">{{result.res}}</td>
 						<tr>
 					</table>
 				</div>
 			</div>
 			<div class="about white-bg">
-				<h3 class="title">{{language.what_is_honja}}</h3>
+				<h4 class="title">{{language.localize.what_is_honja}}</h4>
 
 				<h5 class="honja-description">
-					{{language.honja_description}}
+					{{language.localize.honja_description}}
 				</h5>
 			</div>
 			<div class="copyright">

@@ -1,17 +1,63 @@
 
-var english = {
-	what_is_honja: "What is HONJA?",
-	try_honja: "Try HONJA!",
-	enter_hiragana_or_katakana: "Enter Hiragana or Katakana",
-	honja_description: "HONJA is not a translator. \nIt is a Transliterator."
-}
-
-var japanese = {
-	what_is_honja: "HONJAとは？",
-	try_honja: "HONJAを試してみてください",
-	enter_hiragana_or_katakana: "ひらがなか カタカナを 入力してください",
-	honja_description: "HONJAは多言語ひらがな翻字サービスです。\nHONJAはひらがな・カタカナを別言語の似た音表記に変換します。\n「翻字」であり、「翻訳」ではありません。"
-}
+var Language = (function(){
+	
+	return {
+		japanese: {
+			languageNameList:{
+				Japanese: "日本語",
+				Romaji: "ローマ字",
+				Thai: "タイ語",
+				Korean: "ハングル",
+				Arabic: "アラビア語",
+				Hebrew: "ヘブライ語",
+				Russian: "ロシア語",
+				Georgian: "ジョージア語",
+				Armenian:　"アルメニア語",
+				Greek:	"ギリシャ語",
+				Tibetan: "チベット語",
+				Hindi: "ヒンディー語",
+				Sinhalese:"シンハラ語",
+				Tamil:"タミル語",
+				Khmer:"クメール語",
+				Amharic:"アムハラ語",
+				Burmese: "ビルマ語"
+			},
+			localize: {
+				what_is_honja: "HONJAとは？",
+				try_honja: "HONJAを試してみてください",
+				enter_hiragana_or_katakana: "ひらがなか カタカナを 入力してください",
+				honja_description: "HONJAは多言語ひらがな翻字サービスです。\nHONJAはひらがな・カタカナを別言語の似た音表記に変換します。\n「翻字」であり、「翻訳」ではありません。"
+			}
+		},
+		english: {
+			languageNameList: {
+				Japanese:"Japanese",
+				Romaji:"Romaji",
+				Thai:"Thai",
+				Korean:"Korean",
+				Arabic: "Arabic",
+				Hebrew: "Hebrew",
+				Russian: "Russian",
+				Georgian: "Georgian",
+				Armenian: "Armenian",
+				Greek: "Greek",
+				Tibetan: "Tibetan",
+				Hindi: "Hindi",
+				Sinhalese: "Sinhalese",
+				Tamil: "Tamil",
+				Khmer: "Khmer",
+				Amharic: "Amharic",
+				Burmese: "Burmese"
+			},
+			localize: {
+				what_is_honja: "What is HONJA?",
+				try_honja: "Try HONJA!",
+				enter_hiragana_or_katakana: "Enter Hiragana or Katakana",
+				honja_description: "HONJA is not a translator. \nIt is a Transliterator."
+			}
+		}
+	}
+})();
 
 angular.module("honja", []).controller("HonjaController", 
 	function($scope, $http){
@@ -41,7 +87,7 @@ angular.module("honja", []).controller("HonjaController",
 		var userAgent = navigator.userAgent;
 		$scope.input = "ひらがなか カタカナを いれてください";
 		$scope.results = [];
-		$scope.language = japanese;
+		$scope.language = Language.japanese;
 		$scope.goToGoogleTranslate = function(url){
 			if (!url){
 				return;
@@ -81,15 +127,15 @@ angular.module("honja", []).controller("HonjaController",
 			return result;
 		}
 		$scope.english = function(){
-			$scope.language = english;
+			$scope.language = Language.english;
 		}
 		$scope.japanese = function(){
-			$scope.language = japanese;
+			$scope.language = Language.japanese;
 		}
 		$scope.openAbout = function(){
-			if ($scope.language == japanese){
+			if ($scope.language == Language.japanese){
 				window.open("https://sites.google.com/site/nihongolc/honja");
-			} else if ($scope.language == english){
+			} else if ($scope.language == Language.english){
 				window.open("https://sites.google.com/site/nihongolc/honja/what-s-honja");
 			}
 		}
