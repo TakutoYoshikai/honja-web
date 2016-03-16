@@ -1,4 +1,13 @@
 
+var nvName = navigator.appName;
+var nvVersion = navigator.appVersion;
+var nvUsAgent = navigator.userAgent;
+
+//１．Internet Explorerか調べる
+if ( nvName.indexOf("Internet Explorer") > -1 )
+{
+	document.location = "notSupported.html";
+}
 var Language = (function(){
 	
 	return {
