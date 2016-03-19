@@ -4,7 +4,7 @@ var nvVersion = navigator.appVersion;
 var nvUsAgent = navigator.userAgent;
 
 //１．Internet Explorerか調べる
-if ( nvName.indexOf("Internet Explorer") > -1 )
+if ( nvUsAgent.toLowerCase().indexOf("msie") > -1 )
 {
 	document.location = "notSupported.html";
 }
