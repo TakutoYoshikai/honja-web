@@ -1,4 +1,7 @@
 
+[ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
+  display: none !important;
+  }
 body{
 	background-color:rgba(175,75,78,1);
 }
