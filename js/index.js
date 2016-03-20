@@ -3,7 +3,6 @@ var nvName = navigator.appName;
 var nvVersion = navigator.appVersion;
 var nvUsAgent = navigator.userAgent;
 
-alert(nvUsAgent);
 //１．Internet Explorerか調べる
 if ( nvUsAgent.toLowerCase().indexOf("msie") > -1 || nvUsAgent.indexOf("Trident") > -1 )
 {
