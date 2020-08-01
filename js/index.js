@@ -144,7 +144,7 @@ angular.module("honja", []).controller("HonjaController",
 		$scope.openAbout = function(){
 			if ($scope.language == Language.japanese){
 				window.open("https://sites.google.com/site/nihongolc/home/honja");
-			} else if ($scope.language == Language.english){
+			} else {
 				window.open("https://sites.google.com/site/nihongolc/home/honja/what-s-honja");
 			}
 		}
