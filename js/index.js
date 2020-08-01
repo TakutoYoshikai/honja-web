@@ -75,7 +75,7 @@ angular.module("honja", []).controller("HonjaController",
 
 		var honjaApi = (function(){
 			
-			var baseUrl = "http://magnetohacks.com:3000";
+			var baseUrl = "https://takuto.yoshikai.tech";
 
 			var sendRequest = function(input, callback){
 				var url = baseUrl + "/all?target=" + input;
