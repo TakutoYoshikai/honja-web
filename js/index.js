@@ -75,7 +75,7 @@ angular.module("honja", []).controller("HonjaController",
 
 		var honjaApi = (function(){
 			
-			var baseUrl = "https://takuto.yoshikai.tech";
+			var baseUrl = "https://honja-transliterator.herokuapp.com";
 
 			var sendRequest = function(input, callback){
 				var url = baseUrl + "/all?target=" + input;
