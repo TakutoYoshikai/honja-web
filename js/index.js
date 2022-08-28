@@ -15,7 +15,7 @@ var Language = (function(){
 	return {
 		japanese: {
 			languageNameList:{
-				Japanese: "日本語",
+				Hiragana: "ひらがな",
 				Romaji: "ローマ字",
 				Thai: "タイ語",
 				Korean: "ハングル",
@@ -42,7 +42,7 @@ var Language = (function(){
 		},
 		english: {
 			languageNameList: {
-				Japanese:"Japanese",
+				Hiragana:"Hiragana",
 				Romaji:"Romaji",
 				Thai:"Thai",
 				Korean:"Korean",
@@ -141,7 +141,7 @@ angular.module("honja", []).controller("HonjaController",
         }
       });
       $scope.results = resultArray;
-      sortLangs(resultArray);
+      sortLangs();
 		}
 		document.getElementById("honja-input").onkeypress = function(evt){
 			if (13 == evt.keyCode){
