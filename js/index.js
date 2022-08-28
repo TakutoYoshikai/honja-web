@@ -3,6 +3,8 @@ var nvName = navigator.appName;
 var nvVersion = navigator.appVersion;
 var nvUsAgent = navigator.userAgent;
 
+const Transliterator = window.Transliterator;
+const honja = new Transliterator();
 //１．Internet Explorerか調べる
 if ( nvUsAgent.toLowerCase().indexOf("msie") > -1 || nvUsAgent.indexOf("Trident") > -1 )
 {
@@ -73,25 +75,6 @@ angular.module("honja", []).controller("HonjaController",
 		var langs = ["Japanese", "Romaji", "Thai", "Korean", "Arabic", "Hebrew", "Russian", "Georgian", "Armenian", "Greek", "Tibetan", "Hindi", "Sinhalese", "Tamil", "Khmer", "Amharic", "Burmese"];
 		var langs_google = {"Japanese":"ja", "Romaji":"en", "Thai":"th", "Korean":"ko", "Arabic":"ar", "Russian":"ru", "Greek":"el", "Hindi":"hi", "Tamil":"ta"};
 
-		var honjaApi = (function(){
-			
-			var baseUrl = "https://honja-transliterator.herokuapp.com";
-
-			var sendRequest = function(input, callback){
-				var url = baseUrl + "/all?target=" + input;
-				$http.get(url)
-					.success(function(data, status, headers, config){
-						callback(null, data);
-					})
-					.error(function(err){
-						callback(err, null);
-					});
-			}
-
-			return {
-				sendRequest: sendRequest,
-			}
-		})();
 
 		var userAgent = navigator.userAgent;
 		$scope.input = "ひらがなか カタカナを いれてください";
@@ -149,18 +132,16 @@ angular.module("honja", []).controller("HonjaController",
 			}
 		}
 		$scope.transliterate = function(){
-			honjaApi.sendRequest($scope.input, function(err, res){
-				if (err) console.log(err);
-				else {
-					$scope.results = [];
-					angular.forEach(res, function(value, key){
-						$scope.results.push({language:key, res:value, url: createLinkToGoogleTranslate(key, value)});
-						
-					});
-					$scope.results = sortLangs($scope.results);
-					console.log($scope.results);
-				}
-			});
+      let result = honja.convertAll($scope.input)
+      let resultArray = Object.keys(result).map(language => {
+        return {
+          language: language,
+          res: result[language],
+          url: createLinkToGoogleTranslate(language, result[language]),
+        }
+      });
+      $scope.results = resultArray;
+      sortLangs(resultArray);
 		}
 		document.getElementById("honja-input").onkeypress = function(evt){
 			if (13 == evt.keyCode){
