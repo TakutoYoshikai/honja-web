@@ -72,8 +72,8 @@ var Language = (function(){
 
 angular.module("honja", []).controller("HonjaController", 
 	function($scope, $http){
-		var langs = ["Japanese", "Romaji", "Thai", "Korean", "Arabic", "Hebrew", "Russian", "Georgian", "Armenian", "Greek", "Tibetan", "Hindi", "Sinhalese", "Tamil", "Khmer", "Amharic", "Burmese"];
-		var langs_google = {"Japanese":"ja", "Romaji":"en", "Thai":"th", "Korean":"ko", "Arabic":"ar", "Russian":"ru", "Greek":"el", "Hindi":"hi", "Tamil":"ta"};
+		var langs = ["Hiragana", "Romaji", "Thai", "Korean", "Arabic", "Hebrew", "Russian", "Georgian", "Armenian", "Greek", "Tibetan", "Hindi", "Sinhalese", "Tamil", "Khmer", "Amharic", "Burmese"];
+		var langs_google = {"Hiragana":"ja", "Romaji":"en", "Thai":"th", "Korean":"ko", "Arabic":"ar", "Russian":"ru", "Greek":"el", "Hindi":"hi", "Tamil":"ta"};
 
 
 		var userAgent = navigator.userAgent;
@@ -141,7 +141,7 @@ angular.module("honja", []).controller("HonjaController",
         }
       });
       $scope.results = resultArray;
-      sortLangs();
+      $scope.results = sortLangs();
 		}
 		document.getElementById("honja-input").onkeypress = function(evt){
 			if (13 == evt.keyCode){
