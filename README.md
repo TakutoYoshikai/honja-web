@@ -1,6 +1,6 @@
 # honja-web
 
-<img src="./honja.png" width="400">
+<img src="./honja.png" width="00">
 
 多言語ひらがな翻字サービスHONJAのフロントエンド
 
