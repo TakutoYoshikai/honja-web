@@ -49,9 +49,10 @@ function createGoogleTranslateUrl(lang, result){
   return "https://translate.google.co.jp/m/translate#" + languageCodes[lang] + "/ja/" + result;
 }
 function tryHonja() {
-  const text = document.getElementById("input-text").value.replaceAll("<", "").replaceAll(">", "").replaceAll("'", "").replaceAll("\"", "");
+  let text = document.getElementById("input-text").value.replaceAll("<", "").replaceAll(">", "").replaceAll("'", "").replaceAll("\"", "");
   if (text.trim() === "") {
-    return;
+    text = "ひらがなかカタカナを入れてください";
+    document.getElementById("input-text").value = text; 
   }
   let result = honja.convertAll(text);
   console.info(result);
