@@ -51,7 +51,7 @@ function createGoogleTranslateUrl(lang, result){
 function tryHonja() {
   let text = document.getElementById("input-text").value.replaceAll("<", "").replaceAll(">", "").replaceAll("'", "").replaceAll("\"", "");
   if (text.trim() === "") {
-    text = "ひらがなかカタカナを入れてください";
+    text = "ひらがなかカタカナをいれてください";
     document.getElementById("input-text").value = text; 
   }
   let result = honja.convertAll(text);
