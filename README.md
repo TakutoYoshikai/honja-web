@@ -1,5 +1,7 @@
 # honja-web
 
+<img src="./honja.png" width="400">
+
 多言語ひらがな翻字サービスHONJAのフロントエンド
 
 HONJA 👉 https://yoshikai.net/honja
