@@ -1650,7 +1650,7 @@ function Transliterator() {
   this.convertToHiragana = function(text) {
     let hiragana = toHankaku(text);
     hiragana = hiraganaToKatakana(hiragana);
-    hiragana = convertSpecialJoshi(hiragana);
+    //hiragana = convertSpecialJoshi(hiragana);
     hiragana = this.convertNumberToHiragana(hiragana);
     hiragana = onbiki(hiragana);
     hiragana = this.replaceJoshi(hiragana);
