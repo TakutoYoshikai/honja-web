@@ -59,7 +59,7 @@ function tryHonja() {
   let table = ``;
   table += "<thead><tr><th>言語</th><th>結果</th></tr></thead>";
   table += "<tbody>" + languages.map(language => {
-    return `<tr><td nowrap>${languageNameList[language]}</td><td><a href="${createGoogleTranslateUrl(languageNameList[language], result[language])}">${result[language]}</a></td></tr>`
+    return `<tr><td nowrap>${languageNameList[language]}</td><td><a href="${createGoogleTranslateUrl(languageNameList[language], result[language])}" target="_blank">${result[language]}</a></td></tr>`
   }).reduce((a, b) => a + b, "") + "</tbody>";
 
   document.getElementById("honja-result").innerHTML = table;
