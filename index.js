@@ -46,7 +46,10 @@ const Transliterator = window.Transliterator;
 const honja = new Transliterator();
 
 function createGoogleTranslateUrl(lang, result){
-  return "https://translate.google.co.jp/m/translate#" + languageCodes[lang] + "/ja/" + result;
+  if (lang in languageCodes) {
+    return "https://translate.google.co.jp/m/translate#" + languageCodes[lang] + "/ja/" + result;
+  }
+  return "https://translate.google.co.jp/m/translate#auto/ja/" + result;
 }
 function tryHonja() {
   let text = document.getElementById("input-text").value.replaceAll("<", "").replaceAll(">", "").replaceAll("'", "").replaceAll("\"", "").replaceAll("&");
@@ -59,7 +62,7 @@ function tryHonja() {
   let table = ``;
   table += "<thead><tr><th>言語</th><th>結果</th></tr></thead>";
   table += "<tbody>" + languages.map(language => {
-    return `<tr><td nowrap>${languageNameList[language]}</td><td><a href="${createGoogleTranslateUrl(languageNameList[language], result[language])}" target="_blank">${result[language]}</a></td></tr>`
+    return `<tr><td nowrap>${languageNameList[language]}</td><td><a href="${createGoogleTranslateUrl(language, result[language])}" target="_blank">${result[language]}</a></td></tr>`
   }).reduce((a, b) => a + b, "") + "</tbody>";
 
   document.getElementById("honja-result").innerHTML = table;
